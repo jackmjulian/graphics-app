@@ -4,47 +4,15 @@ const port = process.env.PORT || 5003;
 
 const app = express();
 
-const orders = [
-  {
-    id: 1,
-    client: 'client 1',
-    ref: 'ref 1',
-    date: 'date 1',
-  },
-  {
-    id: 2,
-    client: 'client 2',
-    ref: 'ref 2',
-    date: 'date 2',
-  },
-  {
-    id: 3,
-    client: 'client 3',
-    ref: 'ref 3',
-    date: 'date 3',
-  },
-];
+// body parder middleware to send raw json
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 app.get('/', (req, res) => {
   res.json({ message: 'Welcome to my freelance app' });
 });
 
-// get all orders
-app.get('/api/orders', (req, res) => {
-  res.json({ success: true, data: orders });
-});
-
-// get single order
-app.get('/api/orders/:id', (req, res) => {
-  // finds the order that matches the req params and parses as a number using +
-  const order = orders.find((order) => order.id === +req.params.id);
-
-  // if there is no order with that id
-  if (!order) {
-    res.status(404).json({ success: false, error: 'Order not found' });
-  }
-
-  res.json({ success: true, data: order });
-});
+const ordersRouter = require('./routes/orders');
+app.use('/api/orders', ordersRouter);
 
 app.listen(port, () => console.log(`Server listening on port: ${port}`));
