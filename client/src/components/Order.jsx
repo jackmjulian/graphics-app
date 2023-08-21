@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Card from '../shared/Card';
-import { FaTimes } from 'react-icons/fa';
+import { FaTimes, FaEdit } from 'react-icons/fa';
 import axios from 'axios';
 
 const Order = () => {
@@ -62,6 +62,9 @@ const Order = () => {
             className='close'
           >
             <FaTimes color={'purple'} />
+          </button>
+          <button onClick={() => editOrder(item)} className='edit'>
+            <FaEdit color={'purple'} />
           </button>
           <div className='order-text'>
             <p>Client: {order.client}</p>

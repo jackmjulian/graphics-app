@@ -139,7 +139,7 @@ input:focus {
 }
 
 .btn-secondary {
-  background: #ff6a95;
+  background: #fcaf17;
 }
 
 .btn:hover {
@@ -156,4 +156,34 @@ input:focus {
 .btn:disabled:hover {
   transform: scale(1);
   opacity: 1;
+}
+
+.about-link {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+
+.about-link a {
+  color: #fff;
+  cursor: pointer;
+}
+
+.about-link a:hover {
+  color: #fcaf17;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.about h1 {
+  margin-bottom: 20px;
+}
+
+.about p {
+  margin: 10px 0;
 }
