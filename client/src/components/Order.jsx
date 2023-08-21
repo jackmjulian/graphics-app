@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Card from '../shared/Card';
 import { FaTimes } from 'react-icons/fa';
 import axios from 'axios';
 
@@ -43,9 +44,9 @@ const Order = () => {
   if (loading) {
     return (
       <div className='order-container'>
-        <div className='card'>
+        <Card>
           <div className='order-text'>Loading...</div>
-        </div>
+        </Card>
       </div>
     );
   }
@@ -53,7 +54,7 @@ const Order = () => {
   return (
     <div className='order-container'>
       {orders.map((order) => (
-        <div className='card' key={order._id}>
+        <Card key={order._id}>
           <button
             onClick={() => {
               handleDelete(order._id);
@@ -67,7 +68,7 @@ const Order = () => {
             <p>Ref: {order.ref}</p>
             <p>Date: {order.date.substring(0, 10)}</p>
           </div>
-        </div>
+        </Card>
       ))}
     </div>
   );

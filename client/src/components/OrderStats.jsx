@@ -23,6 +23,7 @@ function OrderStats() {
     yesterday.setDate(today.getDate() - 1);
     return yesterday.toISOString().substring(0, 10);
   };
+  console.log('Test', getYesterday('2023-08-01'));
 
   const getYesterdaysOrders = (ordersData) => {
     const orderDates = ordersData.map((order) => order.date.substring(0, 10));
@@ -35,7 +36,7 @@ function OrderStats() {
   return (
     <div className='order-stats'>
       <h4>Total Orders: {orderCount} </h4>
-      <h4>Yesterdays Orders:{yesterdaysOrders.length} </h4>
+      <h4>Yesterdays Orders: {yesterdaysOrders.length} </h4>
     </div>
   );
 }
